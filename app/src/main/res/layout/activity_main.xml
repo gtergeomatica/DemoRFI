@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="106dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="606dp"
+        android:text="premendo Avvia mandi il tuo nome al server"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColorLink="#FF5E00"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bntStartConn"
+        style="@android:style/Widget.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="134dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="549dp"
+        android:background="#F05F40"
+        android:text="Avvia"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bntStartConn2"
+        style="@android:style/Widget.Button"
+        android:layout_width="305dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="308dp"
+        android:layout_marginBottom="384dp"
+        android:background="#F05F40"
+        android:text="Visualizza la tua posizione in tempo reale"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <WebView
+        android:id="@+id/vistaWeb1"
+        android:layout_width="364dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="231dp"
+        android:layout_marginBottom="439dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <WebView
+        android:id="@+id/vistaWeb2"
+        android:layout_width="366dp"
+        android:layout_height="323dp"
+        android:layout_marginTop="367dp"
+        android:layout_marginBottom="41dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </WebView>
+
+    <EditText
+        android:id="@+id/InsertName"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="640dp"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarThumbHorizontal="@color/colorPrimary"
+        android:scrollbarThumbVertical="@color/colorPrimary"
+        android:scrollbarTrackVertical="@android:color/background_dark"
+        android:scrollbars="vertical"
+        android:selectAllOnFocus="true"
+        android:text="inserisci il tuo nome"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@android:color/black"
+        android:textColorHighlight="#FFF05F40"
+        android:textColorLink="#FFF05F40"
+        android:textCursorDrawable="?attr/colorError"
+        android:textStyle="italic"
+        android:verticalScrollbarPosition="defaultPosition"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="311dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="192dp"
+        android:layout_marginBottom="514dp"
+        android:text="Non hai ancora inserito un nome"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:autoLink="all"
+        android:clickable="true"
+        android:layout_width="310dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="699dp"
+        android:layout_marginBottom="15dp"
+        android:text="www.gter.it"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
