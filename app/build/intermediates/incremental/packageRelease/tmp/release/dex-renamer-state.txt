@@ -1,0 +1,4 @@
+#Thu Oct 03 17:41:37 CEST 2019
+base.0=/home/lorenzo/SviluppoAndroid/DemoRFI/app/build/intermediates/dex/release/mergeDexRelease/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

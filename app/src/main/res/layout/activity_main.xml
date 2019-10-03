@@ -13,33 +13,35 @@
         android:layout_marginStart="68dp"
         android:layout_marginTop="106dp"
         android:layout_marginEnd="68dp"
-        android:layout_marginBottom="606dp"
-        android:text="premendo Avvia mandi il tuo nome al server"
+        android:text="premendo Avvia si associa il nome all'IP "
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColorLink="#FF5E00"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColorLink="#F05F40"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/bntStartConn"
         style="@android:style/Widget.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="88dp"
+        android:layout_height="41dp"
         android:layout_marginStart="161dp"
         android:layout_marginTop="134dp"
         android:layout_marginEnd="162dp"
-        android:layout_marginBottom="549dp"
         android:background="#F05F40"
         android:text="Avvia"
         android:textColor="@android:color/background_light"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.005" />
 
     <Button
         android:id="@+id/bntStartConn2"
@@ -47,40 +49,40 @@
         android:layout_width="305dp"
         android:layout_height="39dp"
         android:layout_marginTop="308dp"
-        android:layout_marginBottom="384dp"
         android:background="#F05F40"
         android:text="Visualizza la tua posizione in tempo reale"
         android:textColor="@android:color/background_light"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.008" />
 
     <WebView
         android:id="@+id/vistaWeb1"
         android:layout_width="364dp"
         android:layout_height="61dp"
         android:layout_marginTop="231dp"
-        android:layout_marginBottom="439dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <WebView
         android:id="@+id/vistaWeb2"
         android:layout_width="366dp"
         android:layout_height="323dp"
         android:layout_marginTop="367dp"
-        android:layout_marginBottom="41dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
     </WebView>
 
@@ -92,7 +94,6 @@
         android:layout_marginStart="121dp"
         android:layout_marginTop="51dp"
         android:layout_marginEnd="122dp"
-        android:layout_marginBottom="640dp"
         android:cursorVisible="false"
         android:ems="10"
         android:inputType="textPersonName"
@@ -112,34 +113,36 @@
         android:textStyle="italic"
         android:verticalScrollbarPosition="defaultPosition"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="311dp"
         android:layout_height="25dp"
         android:layout_marginTop="192dp"
-        android:layout_marginBottom="514dp"
         android:text="Non hai ancora inserito un nome"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.002" />
 
     <TextView
         android:id="@+id/textView3"
-        android:autoLink="all"
-        android:clickable="true"
         android:layout_width="310dp"
         android:layout_height="17dp"
         android:layout_marginTop="699dp"
         android:layout_marginBottom="15dp"
+        android:autoLink="all"
+        android:clickable="true"
         android:text="www.gter.it"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
