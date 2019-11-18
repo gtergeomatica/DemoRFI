@@ -31,8 +31,14 @@ public class MainActivity extends AppCompatActivity {
 
     int i =1; // counter per i punti
 
+    // Read text input stream.
+    InputStreamReader isReader = null;
+    // Read text into buffer.
+    BufferedReader bufReader = null;
+    // Save server response text.
+    StringBuffer readTextBuf = new StringBuffer();
 
-
+    Runnable runnable;
     private Handler mHandler =new Handler();
 
     String area_type_log;
@@ -62,8 +68,9 @@ public class MainActivity extends AppCompatActivity {
 
     private WebView vistaMappa;
 
-    URL url;
-    HttpURLConnection urlConnection = null;
+    private WebView debug;
+    //URL url;
+    //HttpURLConnection urlConnection = null;
 
     // Create the Handler object (on the main thread by default)
     Handler handler = new Handler();
@@ -79,10 +86,14 @@ public class MainActivity extends AppCompatActivity {
 
         Button tastoAvvia = (Button) findViewById(R.id.button_avvia);
         final TextView testo_display = (TextView) findViewById(R.id.textView5);
+        testo_display.setText("");
         final Button registra_punto = (Button) findViewById(R.id.button_rec_p);
         final Button elimina_punto = (Button) findViewById(R.id.button_canc_p);
         final EditText text = (EditText) findViewById(R.id.nomePunto);
         text.setText("P"+i);
+        //final WebView debug = (WebView) findViewById(R.id.vistaWeb);
+
+
 
 
         final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.tipoArea);
@@ -114,13 +125,32 @@ public class MainActivity extends AppCompatActivity {
 
 
                 // associa nome
-
                     Runnable mToastRunnable = new Runnable() {
                         @Override
                         public void run() {
+                            debug = (WebView) findViewById(R.id.debug);
+                    debug.getSettings().setJavaScriptEnabled(true);
+                    debug.setWebViewClient(new WebViewClient());
+                            debug.loadUrl("http://gishosting.gter.it/demo_rfi/read_ip.php?n=" + name);
+                            mHandler.postDelayed(this, 120000); //ogni due minuti
+                        }
+                    };
+
+                    mHandler.removeCallbacks(mToastRunnable); //chiude tutti i runnable attivi
+                    mToastRunnable.run();
+
+
+// reset dei dati
+
+
+                   debug.loadUrl("http://gishosting.gter.it/demo_rfi/reset.php?n=" + name);
+Toast.makeText(getApplicationContext(), "resettati i dati di " + name, Toast.LENGTH_LONG).show();
+
+                    /*
+
 
                             try {
-                                url = new URL("http:/gishosting.gter.it/demo_rfi/read_ip.php?n=" + name);
+                                url = new URL("https://gishosting.gter.it/demo_rfi/read_ip.php?n=" + name);
 
                                 urlConnection = (HttpURLConnection) url
                                         .openConnection();
@@ -139,18 +169,19 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                             Toast.makeText(MainActivity.this, "Ho inviato il nome al server", Toast.LENGTH_SHORT).show();
-                            mHandler.postDelayed(this, 10000); //ogni minuto
+                            mHandler.postDelayed(this, 60000); //ogni minuto
                         }
                     };
 
 
                     mHandler.removeCallbacks(mToastRunnable); //chiude tutti i runnable attivi
                     mToastRunnable.run();
+*/
 
                     //reset
 
-                            try {
-                                url = new URL("http:/gishosting.gter.it/demo_rfi/reset.php?n=" + name);
+   /*                         try {
+                                url = new URL("https://gishosting.gter.it/demo_rfi/reset.php?n=" + name);
 
                                 urlConnection = (HttpURLConnection) url
                                         .openConnection();
@@ -169,6 +200,7 @@ public class MainActivity extends AppCompatActivity {
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
+*/
 
                     //vista mappa
 
@@ -199,42 +231,39 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onFinish() {
 
+                    debug.loadUrl("http://gishosting.gter.it/demo_rfi/reg.php?n="+name+"&p="+text.getText().toString());
 
-                    try {
-                                url = new URL("http:/gishosting.gter.it/demo_rfi/reg.php?n="+name+"?p="+text.getText().toString() );
+                    //testo_display.setText("http://gishosting.gter.it/demo_rfi/reg.php?n="+name+"&p="+text.getText().toString());
 
-                                urlConnection = (HttpURLConnection) url
-                                        .openConnection();
-                                //InputStream in = urlConnection.getInputStream();
+                    i++;
 
-                                //InputStreamReader isw = new InputStreamReader(in);
-
-                                //int data = isw.read();
-                                //while (data != -1) {
-                                //    char current = (char) data;
-                                //    data = isw.read();
-                                //    System.out.print(current);
-                                //}
-
-                        testo_display.setText("http:/gishosting.gter.it/demo_rfi/reg.php?n="+name+"?p="+text.getText().toString());
-
-
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-
-
-                           Toast.makeText(MainActivity.this, "Punto registrato!", Toast.LENGTH_LONG).show();
-
-                 i++;
-
+                 Toast.makeText(MainActivity.this, "Punto registrato",Toast.LENGTH_LONG).show();
                  text.setText("P"+i);
 
-                 //testo_display.setText("Scegli cosa fare ...");
+
+
+                    runnable = new Runnable() {
+
+                        @Override
+                        public void run()
+                        {
+
+                            //ricarico la mappa dopo due secondi
+
+                            vistaMappa.loadUrl("http://gishosting.gter.it/demo_rfi/mappa.php?n="+name);
+
+
+                            testo_display.setText("");
+
+
+                        }
+                    };
+                    handler.postDelayed(runnable, 2000);
 
 
                 }
             }.start();
+
 
 
             }
@@ -249,46 +278,38 @@ public class MainActivity extends AppCompatActivity {
 
                 if(text.getText().toString().equals("P1")) {
 
-            Toast.makeText(MainActivity.this, "Non ci sono punti da eliminare!",
-
-                    Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Non ci sono punti da eliminare!", Toast.LENGTH_LONG).show();
 
             }
             else{
             i--;
             text.setText("P"+i);
-            try {
-                 url = new URL("http:/gishosting.gter.it/demo_rfi/canc.php?n="+name+"?p="+text.getText().toString() );
 
-                 urlConnection = (HttpURLConnection) url
-                            .openConnection();
-                                //InputStream in = urlConnection.getInputStream();
+            debug.loadUrl("http://gishosting.gter.it/demo_rfi/canc.php?n="+name+"&p="+text.getText().toString());
 
-                                //InputStreamReader isw = new InputStreamReader(in);
-
-                                //int data = isw.read();
-                                //while (data != -1) {
-                                //    char current = (char) data;
-                                //    data = isw.read();
-                                //    System.out.print(current);
-                                //}
-
-                 testo_display.setText("http:/gishosting.gter.it/demo_rfi/canc.php?n="+name+"?p="+text.getText().toString());
-
-
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-
-
-                        Toast.makeText(MainActivity.this, "Punto eliminato!",Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Punto eliminato!",Toast.LENGTH_LONG).show();
 
 
 
 
+                    runnable = new Runnable() {
+
+                        @Override
+                        public void run()
+                        {
+
+                            //ricarico la mappa dopo due secondi
+
+                            vistaMappa.loadUrl("http://gishosting.gter.it/demo_rfi/mappa.php?n="+name);
+
+
+                            testo_display.setText("");
+
+
+                        }
+                    };
+                    handler.postDelayed(runnable, 2000);
             }
-
-
 
             }
         });
@@ -333,7 +354,41 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Selezionare il tipo di area ",Toast.LENGTH_LONG).show();
 
                 }else{
-                    testo_display.setText("gishosting.gter.it/save.php?n="+name+"&t="+area_type_log);
+
+
+
+
+
+
+
+                  debug.loadUrl("http://gishosting.gter.it/demo_rfi/save.php?n="+name+"&f="+area_type_log);
+
+                  runnable = new Runnable() {
+
+                    @Override
+                        public void run() {
+
+                        //Perform any task here which you want to do after time finish.
+
+                        //resetto i dati
+                        debug.loadUrl("http://gishosting.gter.it/demo_rfi/reset.php?n=" + name);
+
+
+                        //ricarico la mappa dopo due secondi
+
+                        vistaMappa.loadUrl("http://gishosting.gter.it/demo_rfi/mappa.php?n="+name);
+
+
+
+                            }
+                        };
+                    handler.postDelayed(runnable, 2000);
+
+
+
+                  i = 1;
+
+                  text.setText("P"+i);
 
 
                 }
