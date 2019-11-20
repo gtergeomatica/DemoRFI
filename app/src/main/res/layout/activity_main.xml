@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,9 +10,8 @@
     <EditText
         android:id="@+id/nomeUtente"
         style="@style/Widget.AppCompat.AutoCompleteTextView"
-        android:layout_width="180dp"
+        android:layout_width="180dip"
         android:layout_height="40dp"
-        android:layout_marginTop="41dp"
         android:cursorVisible="false"
         android:ems="10"
         android:inputType="textPersonName"
@@ -32,15 +32,15 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_avvia"
-        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.004" />
+        app:layout_constraintVertical_bias="0.062" />
 
     <Button
         android:id="@+id/button_rec_p"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
+        android:layout_width="70dip"
+        android:layout_height="40dip"
 
         android:background="#F05F40"
         android:drawableLeft="@drawable/ic_point"
@@ -56,8 +56,8 @@
 
     <TextView
         android:id="@+id/pnt_name_title"
-        android:layout_width="154dp"
-        android:layout_height="37dp"
+        android:layout_width="154dip"
+        android:layout_height="37dip"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="PUNTI"
@@ -72,8 +72,8 @@
 
     <TextView
         android:id="@+id/area_type_title"
-        android:layout_width="154dp"
-        android:layout_height="37dp"
+        android:layout_width="154dip"
+        android:layout_height="37dip"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="AREE"
@@ -88,8 +88,8 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="375dp"
-        android:layout_height="41dp"
+        android:layout_width="375dip"
+        android:layout_height="41dip"
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="TextView"
@@ -103,7 +103,7 @@
 
     <WebView
         android:id="@+id/debug"
-        android:layout_width="389dp"
+        android:layout_width="389dip"
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,22 +114,21 @@
 
     <WebView
         android:id="@+id/vistaWeb"
-        android:layout_width="409dp"
-        android:layout_height="293dp"
+        android:layout_width="407dip"
+        android:layout_height="328dip"
         android:layout_marginTop="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomeUtente"
-        app:layout_constraintVertical_bias="0.092">
+        app:layout_constraintVertical_bias="0.0">
 
     </WebView>
 
     <RadioGroup
         android:id="@+id/tipoArea"
-        android:layout_width="159dp"
-        android:layout_height="40dp"
+        android:layout_width="159dip"
+        android:layout_height="40dip"
         android:layout_marginTop="20dp"
 
         android:orientation="horizontal"
@@ -157,8 +156,8 @@
     <EditText
         android:id="@+id/nomePunto"
         style="@style/Widget.AppCompat.AutoCompleteTextView"
-        android:layout_width="156dp"
-        android:layout_height="40dp"
+        android:layout_width="156dip"
+        android:layout_height="40dip"
         android:layout_marginTop="20dp"
         android:cursorVisible="false"
         android:ems="10"
@@ -187,8 +186,8 @@
 
     <Button
         android:id="@+id/button_canc_p"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
+        android:layout_width="70dip"
+        android:layout_height="40dip"
         android:background="#F05F40"
         android:drawableLeft="@drawable/ic_delete"
         android:paddingLeft="23dp"
@@ -203,9 +202,8 @@
 
     <Button
         android:id="@+id/button_avvia"
-        android:layout_width="58dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="58dip"
+        android:layout_height="40dip"
         android:layout_marginEnd="72dp"
         android:layout_marginRight="72dp"
         android:background="#F05F40"
@@ -218,12 +216,12 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.063" />
 
     <Button
         android:id="@+id/button_rec_a"
-        android:layout_width="115dp"
-        android:layout_height="40dp"
+        android:layout_width="115dip"
+        android:layout_height="40dip"
         android:background="#F05F40"
 
         android:text="Salva area"
@@ -241,6 +239,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="391dp" />
+        app:layout_constraintGuide_end="422dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
